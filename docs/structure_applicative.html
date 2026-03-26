@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure Applicative - Projet GSB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .tree { font-family: monospace; font-size: 14px; background: #f8f9fa; padding: 20px; border-radius: 8px; }
+        .tree-folder { color: #0d6efd; font-weight: bold; }
+        .tree-file { color: #212529; }
+        .tree-comment { color: #6c757d; font-style: italic; }
+        h1, h2, h3 { color: #0d6efd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Structure Applicative - Site GSB</h1>
+        <p class="lead">Architecture MVC avec API REST</p>
+
+        <h2>1. Arborescence du projet</h2>
+        <div class="tree">
+<pre>
+GSB_Site/
+├── <span class="tree-folder">api/</span>                          <span class="tree-comment">── Couche API REST (accès BD)</span>
+│   ├── <span class="tree-file">db_connect.php</span>             <span class="tree-comment">── Connexion PDO à la base de données</span>
+│   ├── <span class="tree-file">api_medicaments.php</span>        <span class="tree-comment">── CRUD médicaments (GET/POST/PUT/DELETE)</span>
+│   ├── <span class="tree-file">api_activites.php</span>          <span class="tree-comment">── CRUD activités (GET/POST/PUT/DELETE)</span>
+│   └── <span class="tree-file">api_inscriptions.php</span>       <span class="tree-comment">── Gestion inscriptions (GET/POST/DELETE)</span>
+│
+├── <span class="tree-folder">modele/</span>                       <span class="tree-comment">── Couche Modèle MVC</span>
+│   └── <span class="tree-file">modele.php</span>                 <span class="tree-comment">── Fonctions d'accès aux données via l'API</span>
+│
+├── <span class="tree-folder">controleur/</span>                   <span class="tree-comment">── Couche Contrôleur MVC</span>
+│   └── <span class="tree-file">controleurs.php</span>            <span class="tree-comment">── Logique métier et routage vers les vues</span>
+│
+├── <span class="tree-folder">vues/</span>                         <span class="tree-comment">── Couche Vue MVC</span>
+│   ├── <span class="tree-folder">templates/</span>                <span class="tree-comment">── Templates réutilisables</span>
+│   │   ├── <span class="tree-file">header.php</span>             <span class="tree-comment">── En-tête HTML, navbar Bootstrap</span>
+│   │   └── <span class="tree-file">footer.php</span>             <span class="tree-comment">── Pied de page, scripts JS</span>
+│   ├── <span class="tree-file">vue_accueil.php</span>            <span class="tree-comment">── Page d'accueil</span>
+│   ├── <span class="tree-file">vue_medicaments.php</span>        <span class="tree-comment">── Liste des médicaments</span>
+│   ├── <span class="tree-file">vue_detail_medicament.php</span>  <span class="tree-comment">── Détail médicament (effets, interactions)</span>
+│   ├── <span class="tree-file">vue_activites.php</span>          <span class="tree-comment">── Liste des activités</span>
+│   ├── <span class="tree-file">vue_detail_activite.php</span>    <span class="tree-comment">── Détail activité + formulaire inscription</span>
+│   ├── <span class="tree-file">vue_mentions_legales.php</span>   <span class="tree-comment">── Mentions légales obligatoires</span>
+│   └── <span class="tree-file">vue_erreur.php</span>             <span class="tree-comment">── Page d'erreur</span>
+│
+├── <span class="tree-folder">css/</span>                          <span class="tree-comment">── Styles CSS</span>
+│   └── <span class="tree-file">style.css</span>                  <span class="tree-comment">── Charte graphique personnalisée</span>
+│
+├── <span class="tree-folder">sql/</span>                          <span class="tree-comment">── Base de données</span>
+│   ├── <span class="tree-file">gsb_database.sql</span>           <span class="tree-comment">── Script de création + données de test</span>
+│   ├── <span class="tree-file">sauvegarde_bd.sh</span>           <span class="tree-comment">── Script de sauvegarde (Linux/Mac)</span>
+│   └── <span class="tree-file">sauvegarde_bd.php</span>          <span class="tree-comment">── Script de sauvegarde (PHP/Windows)</span>
+│
+├── <span class="tree-folder">docs/</span>                         <span class="tree-comment">── Documentation du projet</span>
+│
+└── <span class="tree-file">index.php</span>                      <span class="tree-comment">── Front Controller (point d'entrée unique)</span>
+</pre>
+        </div>
+
+        <h2 class="mt-5">2. Architecture MVC</h2>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h4>Principe de fonctionnement</h4>
+                <ol>
+                    <li><strong>L'utilisateur</strong> accède à <code>index.php</code> avec un paramètre <code>action</code></li>
+                    <li><strong>index.php (Front Controller)</strong> route la requête vers le <strong>contrôleur</strong> approprié</li>
+                    <li>Le <strong>contrôleur</strong> appelle le <strong>modèle</strong> pour récupérer les données</li>
+                    <li>Le <strong>modèle</strong> interroge <strong>l'API REST</strong> via des requêtes HTTP</li>
+                    <li><strong>L'API REST</strong> accède à la <strong>base de données MySQL</strong> via PDO</li>
+                    <li>Les données sont renvoyées en <strong>JSON</strong> au modèle</li>
+                    <li>Le contrôleur charge la <strong>vue</strong> appropriée avec les données</li>
+                    <li>La <strong>vue</strong> génère le HTML affiché à l'utilisateur (avec Bootstrap)</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 class="mt-4">3. Routes de l'application</h2>
+        <table class="table table-bordered table-hover">
+            <thead class="table-primary">
+                <tr><th>URL</th><th>Action</th><th>Contrôleur</th><th>Vue</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>index.php</code></td><td>accueil</td><td>accueil()</td><td>vue_accueil.php</td></tr>
+                <tr><td><code>index.php?action=medicaments</code></td><td>medicaments</td><td>getAllMedicaments()</td><td>vue_medicaments.php</td></tr>
+                <tr><td><code>index.php?action=detail_medicament&id=X</code></td><td>detail_medicament</td><td>getDetailMedicament()</td><td>vue_detail_medicament.php</td></tr>
+                <tr><td><code>index.php?action=activites</code></td><td>activites</td><td>getAllActivites()</td><td>vue_activites.php</td></tr>
+                <tr><td><code>index.php?action=detail_activite&id=X</code></td><td>detail_activite</td><td>getDetailActivite()</td><td>vue_detail_activite.php</td></tr>
+                <tr><td><code>index.php?action=inscrire</code> (POST)</td><td>inscrire</td><td>inscrire()</td><td>vue_detail_activite.php</td></tr>
+                <tr><td><code>index.php?action=mentions_legales</code></td><td>mentions_legales</td><td>mentionsLegales()</td><td>vue_mentions_legales.php</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-4">4. Endpoints de l'API REST</h2>
+        <table class="table table-bordered table-hover">
+            <thead class="table-success">
+                <tr><th>Méthode</th><th>URL</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="badge bg-primary">GET</span></td><td>/api/api_medicaments.php</td><td>Liste tous les médicaments</td></tr>
+                <tr><td><span class="badge bg-primary">GET</span></td><td>/api/api_medicaments.php?id=X</td><td>Détail d'un médicament (+ effets + interactions)</td></tr>
+                <tr><td><span class="badge bg-success">POST</span></td><td>/api/api_medicaments.php</td><td>Ajouter un médicament</td></tr>
+                <tr><td><span class="badge bg-warning text-dark">PUT</span></td><td>/api/api_medicaments.php?id=X</td><td>Modifier un médicament</td></tr>
+                <tr><td><span class="badge bg-danger">DELETE</span></td><td>/api/api_medicaments.php?id=X</td><td>Supprimer un médicament</td></tr>
+                <tr><td><span class="badge bg-primary">GET</span></td><td>/api/api_activites.php</td><td>Liste toutes les activités</td></tr>
+                <tr><td><span class="badge bg-primary">GET</span></td><td>/api/api_activites.php?id=X</td><td>Détail d'une activité</td></tr>
+                <tr><td><span class="badge bg-success">POST</span></td><td>/api/api_activites.php</td><td>Ajouter une activité</td></tr>
+                <tr><td><span class="badge bg-success">POST</span></td><td>/api/api_inscriptions.php</td><td>Inscrire un participant</td></tr>
+                <tr><td><span class="badge bg-primary">GET</span></td><td>/api/api_inscriptions.php?id_activite=X</td><td>Liste des inscrits</td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-4">5. Structure de la base de données</h2>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="table-info">
+                        <tr><th>Table</th><th>Description</th><th>Clés étrangères</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>medicaments</code></td><td>Médicaments fabriqués par GSB (nom, description, composition, forme, prix)</td><td>-</td></tr>
+                        <tr><td><code>effets_therapeutiques</code></td><td>Effets thérapeutiques de chaque médicament</td><td>id_medicament → medicaments.id</td></tr>
+                        <tr><td><code>effets_secondaires</code></td><td>Effets secondaires avec niveau de gravité</td><td>id_medicament → medicaments.id</td></tr>
+                        <tr><td><code>interactions</code></td><td>Interactions entre médicaments avec niveau de risque</td><td>id_medicament_1, id_medicament_2 → medicaments.id</td></tr>
+                        <tr><td><code>activites</code></td><td>Activités complémentaires proposées par GSB</td><td>-</td></tr>
+                        <tr><td><code>inscriptions</code></td><td>Inscriptions des participants aux activités</td><td>id_activite → activites.id</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="mt-5">6. Technologies utilisées</h2>
+        <div class="row g-3 mb-5">
+            <div class="col-md-3"><div class="card text-center p-3 shadow-sm"><strong>PHP 8+</strong><br><small class="text-muted">Backend & API REST</small></div></div>
+            <div class="col-md-3"><div class="card text-center p-3 shadow-sm"><strong>MySQL / MariaDB</strong><br><small class="text-muted">Base de données</small></div></div>
+            <div class="col-md-3"><div class="card text-center p-3 shadow-sm"><strong>Bootstrap 5</strong><br><small class="text-muted">Framework CSS responsive</small></div></div>
+            <div class="col-md-3"><div class="card text-center p-3 shadow-sm"><strong>PDO</strong><br><small class="text-muted">Accès sécurisé à la BD</small></div></div>
+        </div>
+    </div>
+</body>
+</html>

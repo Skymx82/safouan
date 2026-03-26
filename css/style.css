@@ -1,0 +1,134 @@
+/*
+ * =====================================================
+ * CHARTE GRAPHIQUE - GSB (Galaxy Swiss Bourdin)
+ * =====================================================
+ *
+ * Couleurs principales :
+ *   - Bleu primaire   : #0d6efd (confiance, santé, professionnalisme)
+ *   - Blanc            : #ffffff (pureté, clarté)
+ *   - Gris foncé       : #212529 (texte, footer)
+ *   - Gris clair       : #f8f9fa (arrière-plans sections)
+ *
+ * Couleurs d'accent :
+ *   - Vert succès      : #198754 (effets positifs)
+ *   - Orange warning   : #ffc107 (effets secondaires)
+ *   - Rouge danger     : #dc3545 (interactions critiques)
+ *   - Bleu info        : #0dcaf0 (badges informatifs)
+ *
+ * Police : Système (Bootstrap 5 default stack)
+ * =====================================================
+ */
+
+/* === GÉNÉRAL === */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    color: #212529;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 50%, #084298 100%);
+}
+
+/* === CARTES === */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* === NAVBAR === */
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+    opacity: 0.85;
+}
+
+/* === BADGES === */
+.badge {
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+}
+
+.bg-orange {
+    background-color: #fd7e14 !important;
+    color: white;
+}
+
+/* === FORMULAIRES === */
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* === FOOTER === */
+footer a:hover {
+    color: #0d6efd !important;
+}
+
+/* === TABLES === */
+.table th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* === BREADCRUMB === */
+.breadcrumb {
+    background: none;
+    padding: 0;
+}
+
+.breadcrumb a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-lg {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}

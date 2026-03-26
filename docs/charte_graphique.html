@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charte Graphique - Projet GSB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1, h2 { color: #0d6efd; }
+        .color-swatch { width: 100%; height: 100px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-2">Charte Graphique</h1>
+        <p class="text-center text-muted lead mb-5">Site web GSB - Galaxy Swiss Bourdin</p>
+
+        <!-- LOGO -->
+        <h2>1. Logo et identité</h2>
+        <div class="card shadow-sm mb-5 p-4">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <div class="bg-primary text-white p-4 rounded" style="font-size: 3rem;">
+                        <i class="bi bi-capsule"></i> <strong>GSB</strong>
+                    </div>
+                    <small class="text-muted mt-2 d-block">Logo principal (fond bleu)</small>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="bg-white text-primary p-4 rounded border" style="font-size: 3rem;">
+                        <i class="bi bi-capsule"></i> <strong>GSB</strong>
+                    </div>
+                    <small class="text-muted mt-2 d-block">Logo inversé (fond blanc)</small>
+                </div>
+                <div class="col-md-4">
+                    <p><strong>Nom complet :</strong> Galaxy Swiss Bourdin</p>
+                    <p><strong>Abréviation :</strong> GSB</p>
+                    <p><strong>Icône :</strong> Bootstrap Icons - bi-capsule</p>
+                    <p><strong>Typographie du logo :</strong> Arial Bold</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COULEURS -->
+        <h2>2. Palette de couleurs</h2>
+        <div class="row g-3 mb-5">
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-white" style="background: #0d6efd;">#0D6EFD</div>
+                <p class="text-center"><strong>Bleu primaire</strong><br><small>Navigation, boutons, titres</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-dark" style="background: #ffffff; border: 2px solid #dee2e6;">#FFFFFF</div>
+                <p class="text-center"><strong>Blanc</strong><br><small>Fond de page, cartes</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-white" style="background: #212529;">#212529</div>
+                <p class="text-center"><strong>Gris foncé</strong><br><small>Texte principal, footer</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-dark" style="background: #f8f9fa;">#F8F9FA</div>
+                <p class="text-center"><strong>Gris clair</strong><br><small>Arrière-plans sections</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-white" style="background: #198754;">#198754</div>
+                <p class="text-center"><strong>Vert succès</strong><br><small>Effets thérapeutiques, confirmations</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-dark" style="background: #ffc107;">#FFC107</div>
+                <p class="text-center"><strong>Jaune warning</strong><br><small>Effets secondaires, alertes</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-white" style="background: #dc3545;">#DC3545</div>
+                <p class="text-center"><strong>Rouge danger</strong><br><small>Interactions critiques, erreurs</small></p>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="color-swatch text-dark" style="background: #0dcaf0;">#0DCAF0</div>
+                <p class="text-center"><strong>Bleu info</strong><br><small>Badges informatifs, formes</small></p>
+            </div>
+        </div>
+
+        <!-- TYPOGRAPHIE -->
+        <h2>3. Typographie</h2>
+        <div class="card shadow-sm mb-5 p-4">
+            <table class="table mb-0">
+                <thead><tr><th>Élément</th><th>Police</th><th>Taille</th><th>Poids</th><th>Exemple</th></tr></thead>
+                <tbody>
+                    <tr><td>Titre principal (H1)</td><td>System Stack</td><td>2.5rem</td><td>Bold (700)</td><td><h1 class="mb-0" style="font-size:1.5rem">Galaxy Swiss Bourdin</h1></td></tr>
+                    <tr><td>Sous-titre (H2)</td><td>System Stack</td><td>2rem</td><td>Bold (700)</td><td><h2 class="mb-0" style="font-size:1.3rem">Nos Médicaments</h2></td></tr>
+                    <tr><td>Titre carte (H5)</td><td>System Stack</td><td>1.25rem</td><td>Bold (700)</td><td><h5 class="mb-0 text-primary">Doliprane 500mg</h5></td></tr>
+                    <tr><td>Texte courant</td><td>System Stack</td><td>1rem (16px)</td><td>Normal (400)</td><td>Laboratoire pharmaceutique de référence.</td></tr>
+                    <tr><td>Texte secondaire</td><td>System Stack</td><td>0.875rem</td><td>Normal (400)</td><td><small class="text-muted">Informations complémentaires</small></td></tr>
+                </tbody>
+            </table>
+            <p class="mt-3 mb-0 text-muted"><strong>System Stack :</strong> -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif</p>
+        </div>
+
+        <!-- COMPOSANTS -->
+        <h2>4. Composants UI</h2>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <h5>Boutons</h5>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn btn-primary">Bouton principal</button>
+                    <button class="btn btn-outline-primary">Bouton secondaire</button>
+                    <button class="btn btn-light btn-lg">Bouton Hero</button>
+                    <button class="btn btn-primary btn-sm">Petit bouton</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Badges</h5>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-info">Comprimé</span>
+                    <span class="badge bg-success">faible</span>
+                    <span class="badge bg-warning text-dark">modéré</span>
+                    <span class="badge bg-danger">grave</span>
+                    <span class="badge" style="background:#fd7e14;color:white;">élevé</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Carte médicament</h5>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="text-primary"><i class="bi bi-capsule"></i> Doliprane 500mg</h5>
+                        <span class="badge bg-info">Comprimé</span>
+                        <p class="text-muted small mt-2">Antalgique et antipyrétique à base de paracétamol...</p>
+                        <p class="fw-bold text-success"><i class="bi bi-tag"></i> 2,50 &euro;</p>
+                        <a href="#" class="btn btn-primary btn-sm w-100"><i class="bi bi-eye"></i> Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Alertes</h5>
+                <div class="alert alert-success"><i class="bi bi-check-circle-fill"></i> Inscription réussie !</div>
+                <div class="alert alert-danger"><i class="bi bi-x-circle-fill"></i> Plus de places disponibles.</div>
+                <div class="alert alert-info"><i class="bi bi-info-circle"></i> Aucun médicament disponible.</div>
+            </div>
+        </div>
+
+        <!-- RESPONSIVE -->
+        <h2>5. Responsive Design</h2>
+        <div class="card shadow-sm mb-5 p-4">
+            <table class="table mb-0">
+                <thead><tr><th>Breakpoint</th><th>Largeur</th><th>Layout</th></tr></thead>
+                <tbody>
+                    <tr><td>Mobile (xs)</td><td>&lt; 576px</td><td>1 colonne, menu hamburger, boutons plus petits</td></tr>
+                    <tr><td>Tablette (sm/md)</td><td>576px - 991px</td><td>2 colonnes pour les cartes, navbar visible</td></tr>
+                    <tr><td>Desktop (lg+)</td><td>&ge; 992px</td><td>3 colonnes pour les cartes, navbar complète</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ICÔNES -->
+        <h2>6. Iconographie</h2>
+        <div class="card shadow-sm mb-5 p-4">
+            <p>Bibliothèque utilisée : <strong>Bootstrap Icons 1.11.2</strong> (licence MIT)</p>
+            <div class="row text-center g-3">
+                <div class="col-4 col-md-2"><i class="bi bi-capsule display-5 text-primary"></i><br><small>Médicament</small></div>
+                <div class="col-4 col-md-2"><i class="bi bi-capsule-pill display-5 text-primary"></i><br><small>Liste médic.</small></div>
+                <div class="col-4 col-md-2"><i class="bi bi-calendar-event display-5 text-primary"></i><br><small>Activité</small></div>
+                <div class="col-4 col-md-2"><i class="bi bi-heart-pulse display-5 text-success"></i><br><small>Effet thérap.</small></div>
+                <div class="col-4 col-md-2"><i class="bi bi-exclamation-triangle display-5 text-warning"></i><br><small>Effet second.</small></div>
+                <div class="col-4 col-md-2"><i class="bi bi-arrow-left-right display-5 text-danger"></i><br><small>Interaction</small></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

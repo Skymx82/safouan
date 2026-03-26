@@ -1,0 +1,17 @@
+# Configuration Apache pour le projet GSB
+# Empêcher l'accès direct aux dossiers
+Options -Indexes
+
+# Encodage UTF-8
+AddDefaultCharset UTF-8
+
+# Protection des fichiers sensibles
+<FilesMatch "\.(sql|sh|md)$">
+    Require all denied
+</FilesMatch>
+
+# Protection du dossier docs en production
+# (à décommenter en production)
+# <Directory "docs">
+#     Require all denied
+# </Directory>
